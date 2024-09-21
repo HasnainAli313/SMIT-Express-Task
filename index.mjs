@@ -17,3 +17,9 @@ let items = [
     }
 
 ];
+
+app.get('/api/items', (req, res) => {
+    res.status(200).json({ message: 'GET request - Fetching all items', data: items });
+  });
+  
+
