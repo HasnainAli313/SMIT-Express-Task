@@ -52,3 +52,8 @@ app.put('/api/items/:id', (req, res) => {
             res.status(404).json({ message: `Item with ID ${itemId} not found` });
           }
         });
+
+        const PORT = 3000;
+        app.listen(PORT, () => {
+          console.log(`Server running on http://localhost:${PORT}`);
+        });
