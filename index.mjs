@@ -28,3 +28,9 @@ app.post('/api/items', (req, res) => {
   items.push(newItem);
   res.status(201).json({ message: 'POST request - Adding new item', data: newItem });
 });
+
+app.put('/api/items/:id', (req, res) => {
+    const itemId = parseInt(req.params.id, 10);
+    const updatedItem = req.body;
+    const index = items.findIndex(item => item.id === itemId);
+  
