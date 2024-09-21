@@ -41,3 +41,7 @@ app.put('/api/items/:id', (req, res) => {
         res.status(404).json({ message: `Item with ID ${itemId} not found` });
       }
     });
+
+    app.delete('/api/items/:id', (req, res) => {
+        const itemId = parseInt(req.params.id, 10);
+        const index = items.findIndex(item => item.id === itemId);
