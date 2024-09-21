@@ -45,3 +45,10 @@ app.put('/api/items/:id', (req, res) => {
     app.delete('/api/items/:id', (req, res) => {
         const itemId = parseInt(req.params.id, 10);
         const index = items.findIndex(item => item.id === itemId);
+        if (index !== -1) {
+            items.splice(index, 1);
+            res.status(200).json({ message: `DELETE request - Deleting item ${itemId}` });
+          } else {
+            res.status(404).json({ message: `Item with ID ${itemId} not found` });
+          }
+        });
