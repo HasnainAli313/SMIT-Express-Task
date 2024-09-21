@@ -34,3 +34,10 @@ app.put('/api/items/:id', (req, res) => {
     const updatedItem = req.body;
     const index = items.findIndex(item => item.id === itemId);
   
+    if (index !== -1) {
+        items[index] = updatedItem;
+        res.status(200).json({ message: `PUT request - Updating item ${itemId}`, data: updatedItem });
+      } else {
+        res.status(404).json({ message: `Item with ID ${itemId} not found` });
+      }
+    });
